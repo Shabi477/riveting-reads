@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --background: #fafbfc;
+  --foreground: #2d3748;
+  --primary: #ff6b35;
+  --secondary: #4a90e2;
+  --accent: #32d74b;
+  --card-bg: #ffffff;
+  --text-light: #718096;
+  --border-light: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f7fafc;
+    --foreground: #2d3748;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* BeeLinguApp-inspired design tokens */
+.bee-bg-primary { background-color: #ff6b35; }
+.bee-bg-secondary { background-color: #4a90e2; }
+.bee-bg-accent { background-color: #32d74b; }
+.bee-bg-card { background-color: #ffffff; }
+.bee-bg-light { background-color: #fafbfc; }
+
+.bee-text-primary { color: #ff6b35; }
+.bee-text-secondary { color: #4a90e2; }
+.bee-text-dark { color: #2d3748; }
+.bee-text-light { color: #718096; }
+
+.bee-border { border-color: #e2e8f0; }
+.bee-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.bee-shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
+/* Modern buttons inspired by BeeLinguApp */
+.bee-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  transform: translateY(0);
+  font-family: 'Inter', sans-serif;
+}
+
+.bee-btn:hover {
+  transform: translateY(-1px);
+}
+
+.bee-btn-primary {
+  background-color: #f97316;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.bee-btn-primary:hover {
+  background-color: #ea580c;
+}
+
+.bee-btn-secondary {
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.bee-btn-secondary:hover {
+  background-color: #2563eb;
+}
+
+.bee-btn-accent {
+  background-color: #22c55e;
+  color: white;
+  box-shadow: 0 4px 12px rgba(50, 215, 75, 0.3);
+}
+
+.bee-btn-accent:hover {
+  background-color: #16a34a;
+}
+
+/* Cards inspired by BeeLinguApp */
+.bee-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.bee-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* 3D Flashcard CSS for proper card flipping */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom Range Slider Styling for Interactive Reader */
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f97316;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f97316;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.range-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced word interaction animations */
+@keyframes word-highlight {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(249, 115, 22, 0.2); }
+  100% { background-color: rgba(249, 115, 22, 0.1); }
+}
+
+.word-highlight-animation {
+  animation: word-highlight 0.6s ease-in-out;
+}
+
+/* Enhanced Interactive Reader Styling */
+.interactive-word {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-word:hover {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.2));
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+}
+
+.current-word {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.3));
+  box-shadow: 0 2px 12px rgba(249, 115, 22, 0.25);
+  font-weight: 600;
+}
+
+.saved-word {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.2));
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
